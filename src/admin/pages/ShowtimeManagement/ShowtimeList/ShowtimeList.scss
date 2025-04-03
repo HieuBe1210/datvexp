@@ -1,0 +1,83 @@
+.showtime-list {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+
+    .ant-btn {
+      // Các nút thông thường
+      background-color: #f0f0f0;
+      border: 1px solid #d9d9d9;
+      color: #000;
+
+      &:hover {
+        background-color: #e6e6e6;
+        border-color: #bfbfbf;
+      }
+
+      // Nút Xóa bộ lọc
+      &.delete-filter-btn {
+        background-color: #ff3333 !important;
+        color: #fff !important;
+        border: none !important;
+        box-shadow: 0 2px 4px rgba(255, 51, 51, 0.3);
+        font-weight: 500;
+        transition: all 0.3s ease; // Hiệu ứng mượt mà khi hover
+
+        &:hover {
+          background-color: #e60000 !important;
+          box-shadow: 0 4px 8px rgba(255, 51, 51, 0.5);
+          transform: translateY(-1px); // Nâng nhẹ nút lên khi hover
+        }
+
+        &:active {
+          transform: translateY(1px); // Hạ nút xuống khi nhấn
+          box-shadow: 0 1px 2px rgba(255, 51, 51, 0.2); // Giảm bóng khi nhấn
+        }
+      }
+    }
+  }
+
+  .showtime-list-search {
+    flex-grow: 1;
+    min-width: 250px;
+    margin-left: auto;
+  }
+
+  .ant-table {
+    margin-top: 20px;
+  }
+
+  .status-tag {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+
+    &.status-active {
+      background-color: #f6ffed;
+      border: 1px solid #b7eb8f;
+      color: #52c41a;
+    }
+
+    &.status-inactive {
+      background-color: #fff2f0;
+      border: 1px solid #ffccc7;
+      color: #ff4d4f;
+    }
+  }
+}
+.ant-table-content {
+  .ant-table-thead {
+    .ant-table-cell {
+      //   text-align: center;
+    }
+  }
+}

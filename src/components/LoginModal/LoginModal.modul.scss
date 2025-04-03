@@ -1,0 +1,258 @@
+@use "./../../assets/styles/cssBase.scss";
+
+// CSS DÙNG CHUNG CHO CÁC MODAL ĐĂNG NHẬP, ĐĂNG KÝ, QUÊN MẬT KHẨU
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; // Sử dụng 100vw để đảm bảo chiều rộng phủ toàn bộ màn hình
+  height: 100vh; // Sử dụng 100vh để đảm bảo chiều cao phủ toàn bộ màn hình
+  background: rgba(0, 0, 0, 0.55); // Màu nền trong suốt
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; // Đảm bảo z-index cao hơn các thành phần khác
+}
+.modal-content {
+  overflow-y: auto; // Bật thanh cuộn dọc khi nội dung vượt quá chiều cao
+  position: relative;
+  padding: 35px;
+  background: white;
+  width: 450px;
+  max-width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(0.9);
+  animation: scaleIn 0.3s forwards;
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer; // Con trỏ thành hình bàn tay khi hover
+    color: #333; // Màu cho nút đóng (X)
+  }
+  .modal-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: cssBase.$primary-color;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .input-error-wrapper {
+    position: relative;
+  }
+  .input-container {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="password"] {
+      font-size: 1.4rem;
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      &:focus {
+        border-color: #1a73e8; // Đổi màu viền khi ô nhập liệu được chọn
+      }
+    }
+    .input-error {
+      border: 1px solid red !important;
+    }
+    label {
+      margin-top: 20px;
+      display: block;
+      text-align: left;
+      color: #555; // Màu chữ phụ cho label
+      input[type="checkbox"],
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+    }
+    .input-modal {
+      font-size: 1.4rem;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      &:focus {
+        border-color: #1a73e8; // Đổi màu viền khi ô nhập liệu được chọn
+      }
+    }
+    .password-field {
+      position: relative;
+      display: flex;
+      align-items: center;
+      .input-modal {
+        flex: 1; // Đảm bảo input chiếm toàn bộ không gian trừ phần của biểu tượng con mắt
+        padding-right: 40px; // Tạo khoảng trống cho biểu tượng con mắt
+        margin-top: 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      .show-password {
+        position: absolute;
+        right: 5px; // Căn lề phải của biểu tượng con mắt
+        top: 50%;
+        transform: translateY(-30%); // Căn giữa theo chiều dọc của biểu tượng
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: #333;
+      }
+    }
+    .submit-button {
+      width: 100%;
+      background-color: #1a73e8;
+      color: white;
+      font-size: 1.6rem;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      &:hover {
+        cursor: pointer;
+        background-color: #155ab4;
+      }
+    }
+    .error-message {
+      position: absolute;
+      line-height: 1.3;
+      margin-top: 5px;
+      text-align: justify;
+      height: 15px;
+      color: red;
+      font-size: 1.4rem;
+    }
+  }
+
+  .forgot-password,
+  .register-text {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+  }
+  .forgot-password {
+    margin-top: 15px;
+    color: #1a73e8;
+  }
+  .register-link {
+    a {
+      margin-top: 15px;
+    }
+    color: #1a73e8;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+// ------- MODAL LOGIN --------
+.modal-login-content {
+  padding: 50px;
+  .error-message-wrapper {
+    position: relative;
+    .resend-verification {
+      position: absolute;
+      bottom: -21px;
+      right: -6px;
+      button {
+        background-color: transparent;
+        border: none;
+        color: #007bff; // Màu xanh nhấn mạnh, bạn có thể thay đổi
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 1.4rem;
+
+        &:hover {
+          cursor: pointer;
+          color: #0056b3;
+        }
+      }
+    }
+    .error-message-all {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+  .social-login {
+    p {
+      margin-top: 10px;
+    }
+    .social-icons {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      margin-top: 15px;
+      background: transparent;
+      border: none;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .remember-me {
+    display: flex;
+    align-items: center;
+    margin: 25px 0 15px 0;
+    label {
+      margin: 0 5px;
+      font-size: 1.6rem;
+      font-weight: normal;
+    }
+  }
+  .submit-login-button {
+    margin-top: 25px;
+  }
+}
+/* Keyframes cho hiệu ứng mở Modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Hiệu ứng khi đóng Modal */
+.modal-overlay.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+.modal-content.scale-out {
+  animation: scaleOut 0.3s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.9);
+  }
+}

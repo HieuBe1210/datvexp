@@ -1,0 +1,61 @@
+@use "../../../assets/styles/mixins.scss" as *;
+@use "../../../assets/styles/variables.scss" as *;
+
+.detail_movie_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+  img {
+    width: 150px;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    object-fit: contain;
+  }
+
+  .detail_movie_title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #03599d;
+  }
+}
+
+.detail_movie_info {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  line-height: 1.2;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    .label {
+      font-weight: 600;
+      flex: 1;
+      text-align: left;
+    }
+
+    .value {
+      flex: 2;
+      text-align: right;
+      font-style: italic;
+    }
+  }
+}
+
+@include respond-to(xxs) {
+  .detail_movie_container {
+    .detail_movie_title {
+      font-size: $mobase-font-size-2xl;
+      margin-bottom: 5px;
+    }
+    .detail_movie_info {
+      line-height: 1.1;
+      font-size: $mobase-font-size-xl !important;
+    }
+  }
+}

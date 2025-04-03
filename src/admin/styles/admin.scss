@@ -1,0 +1,26 @@
+.admin-wrapper {
+  font-size: 1.4rem; // Font-size mặc định cho admin
+  font-family: "Roboto", "Arial", sans-serif;
+
+  * {
+    font-size: inherit; // Thừa kế font-size từ .admin-wrapper
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1.8rem; // Tùy chỉnh riêng tiêu đề
+  }
+
+  p,
+  span,
+  a,
+  li,
+  td,
+  th {
+    font-size: 1.4rem; // Tùy chỉnh các thành phần khác
+  }
+}

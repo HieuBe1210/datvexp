@@ -1,0 +1,126 @@
+@use "../../../../assets/styles/mixins.scss" as *;
+@use "../../../../assets/styles/variables.scss" as *;
+
+.profile-info {
+  max-width: 730px;
+  margin: 0 auto;
+  padding: 60px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: linear-gradient(to bottom, #dcf1e9, #b5dbed, #e5e5e5);
+  margin-bottom: 5px;
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    .avatar-preview {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #ccc;
+    }
+
+    .upload-btn,
+    .save-btn {
+      display: inline-block;
+      background-color: #ff9800;
+      color: white;
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .save-btn {
+      background-color: #4caf50;
+    }
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    input[readOnly] {
+      background-color: #f0f0f0; /* Màu nền nhạt hơn */
+      cursor: not-allowed; /* Con trỏ chuột thể hiện không chỉnh sửa được */
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .input-modal,
+    select {
+      width: 100%;
+      height: 40px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+  }
+
+  .address-field {
+    grid-column: span 2;
+  }
+
+  .change-password {
+    margin: 10px 0;
+    text-align: right;
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .update-btn {
+    width: 200px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+// RESPONSIVE
+@include respond-to(xs) {
+  .profile-info-wrap {
+    .profile-info {
+      max-width: 360px;
+      padding: 30px;
+      .avatar-section {
+        margin: 0;
+      }
+      .form-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .selecte-birth-date {
+          width: 298px; // adjust width to fit the date picker
+        }
+      }
+    }
+  }
+}

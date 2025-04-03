@@ -1,0 +1,86 @@
+.cinema-stats-dashboard {
+  padding: 16px;
+
+  // Điều chỉnh ô thống kê tổng số rạp
+  .ant-row {
+    .ant-col {
+      .ant-card {
+        .ant-card-body {
+          padding: 12px;
+          text-align: center;
+
+          .ant-statistic {
+            .ant-statistic-title {
+              font-size: 14px;
+              color: #666;
+              margin-bottom: 4px;
+            }
+
+            .ant-statistic-content {
+              font-size: 24px;
+              font-weight: 600;
+              color: #1890ff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Điều chỉnh các biểu đồ
+  .ant-row:nth-child(2) {
+    .ant-col {
+      .ant-card {
+        .ant-card-body {
+          padding: 16px;
+
+          .ant-card-title {
+            font-size: 16px;
+          }
+
+          canvas {
+            max-height: 300px;
+          }
+        }
+      }
+    }
+  }
+
+  // Điều chỉnh các bảng
+  .ant-row:nth-child(3),
+  .ant-row:nth-child(4) {
+    .ant-col {
+      .ant-card {
+        .ant-card-body {
+          padding: 16px;
+
+          .ant-table {
+            .ant-table-thead {
+              th {
+                font-size: 14px;
+                padding: 8px;
+              }
+            }
+
+            .ant-table-tbody {
+              td {
+                font-size: 14px;
+                padding: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Điều chỉnh bộ lọc
+  .ant-row:first-child {
+    .ant-col {
+      .ant-select,
+      .ant-picker {
+        font-size: 14px;
+      }
+    }
+  }
+}

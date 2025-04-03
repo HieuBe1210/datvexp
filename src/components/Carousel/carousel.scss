@@ -1,0 +1,38 @@
+@use "../../assets//styles/mixins.scss" as *;
+
+.carousel_img {
+  min-height: 350px;
+  @include respond-to(xs) {
+    display: none;
+  }
+  .ant-carousel {
+    position: relative;
+    .slick-slide img {
+      display: block;
+      margin: 0 auto;
+      width: 95%;
+      height: 350px;
+      object-fit: contain;
+      padding: 5px;
+      border-radius: 15px;
+    }
+    .slick-dots {
+      bottom: -10px !important;
+      li {
+        margin-top: 5px;
+
+        margin-right: 25px !important;
+        width: 35px !important;
+        height: 7px;
+        background-color: #0e1b4c !important;
+        button {
+          padding: 10px !important;
+        }
+      }
+      li::after {
+        background-color: #9e9e9e;
+        padding: 10px !important;
+      }
+    }
+  }
+}

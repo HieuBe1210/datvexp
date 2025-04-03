@@ -1,0 +1,230 @@
+@use "../../../assets/styles/variables.scss" as *;
+
+.movie-ticket-banner {
+  background-color: $background-green;
+  padding: 15px 40px;
+  border-radius: $border-radius-large;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // Phần nội dung chính (text + image)
+  .banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: $max-width;
+
+    // Phần text bên trái
+    .banner-text {
+      max-width: 50%;
+      text-align: left;
+      line-height: 1.2;
+
+      h1 {
+        font-size: $mobase-font-size-4xl;
+        color: $text-dark;
+
+        span {
+          color: $orange-color;
+        }
+      }
+
+      p {
+        font-size: $mobase-font-size-2xl;
+        color: $text-gray;
+        margin: $gap-medium 0 $gap-large;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: $gap-large;
+
+        li {
+          font-size: $mobase-font-size-2xl;
+          color: $text-dark;
+          margin: $gap-medium 0;
+          position: relative;
+          padding-left: 30px;
+
+          &::before {
+            content: "✔";
+            color: $orange-color;
+            position: absolute;
+            left: 0;
+            font-size: $mobase-font-size-2xl;
+          }
+        }
+      }
+
+      .cta-button {
+        background-color: $orange-color;
+        color: $white;
+        border: none;
+        padding: 12px 30px;
+        font-size: $mobase-font-size-2xl;
+        border-radius: $border-radius-slot;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: darken($orange-color, 10%);
+        }
+      }
+    }
+
+    // Phần hình ảnh bên phải
+    .banner-image {
+      max-width: 45%;
+      text-align: center;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .banner-image-text {
+        font-size: 2rem;
+        color: $primary-color;
+        margin-top: $gap-medium;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  // Responsive cho Tablet (768px - 1024px)
+  @media (max-width: 1024px) {
+    padding: 15px 30px;
+
+    .banner-content {
+      .banner-text {
+        max-width: 55%; // Tăng nhẹ để cân đối
+
+        h1 {
+          font-size: $mobase-font-size-3xl; // Giảm font size
+        }
+
+        p {
+          font-size: $mobase-font-size-xl;
+        }
+
+        ul li {
+          font-size: $mobase-font-size-xl;
+          padding-left: 25px;
+
+          &::before {
+            font-size: $mobase-font-size-xl;
+          }
+        }
+
+        .cta-button {
+          font-size: $mobase-font-size-xl;
+          padding: 10px 25px;
+        }
+      }
+
+      .banner-image {
+        max-width: 40%; // Giảm để cân đối
+
+        .banner-image-text {
+          font-size: $mobase-font-size-xl;
+        }
+      }
+    }
+  }
+
+  // Responsive cho Mobile (< 768px)
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+
+    .banner-content {
+      flex-direction: column; // Chuyển thành layout dọc
+      align-items: center;
+      text-align: center;
+
+      .banner-text {
+        max-width: 100%; // Chiếm toàn bộ chiều rộng
+        margin-bottom: $gap-large;
+
+        h1 {
+          font-size: $mobase-font-size-xl; // Giảm font size
+        }
+
+        p {
+          font-size: $mobase-font-size-xl;
+          margin: $gap-small 0 $gap-medium;
+        }
+
+        ul li {
+          font-size: $mobase-font-size-xl;
+          padding-left: 25px;
+
+          &::before {
+            font-size: $mobase-font-size-xl;
+          }
+        }
+
+        .cta-button {
+          font-size: $mobase-font-size-xl;
+          padding: 10px 20px;
+          width: 100%; // Nút chiếm toàn bộ chiều rộng
+          max-width: 300px; // Giới hạn chiều rộng tối đa
+        }
+      }
+
+      .banner-image {
+        max-width: 80%; // Giảm kích thước hình ảnh
+        margin-top: $gap-medium;
+
+        .banner-image-text {
+          font-size: $mobase-font-size-xl;
+        }
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  // Responsive cho màn hình rất nhỏ (< 480px)
+  @media (max-width: 480px) {
+    padding: 10px 15px;
+
+    .banner-content {
+      .banner-text {
+        h1 {
+          font-size: $mobase-font-size-2xl;
+        }
+
+        p {
+          font-size: $mobase-font-size-xl;
+        }
+
+        ul li {
+          font-size: $mobase-font-size-xl;
+          padding-left: 20px;
+
+          &::before {
+            font-size: $mobase-font-size-xl;
+          }
+        }
+
+        .cta-button {
+          font-size: $mobase-font-size-xl;
+          padding: 8px 15px;
+        }
+      }
+
+      .banner-image {
+        max-width: 90%;
+
+        .banner-image-text {
+          font-size: $mobase-font-size-xl;
+        }
+      }
+    }
+  }
+}

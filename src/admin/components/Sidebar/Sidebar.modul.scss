@@ -1,0 +1,47 @@
+.admin-wrapper {
+  .logo {
+    min-height: 64px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    img {
+      width: 60%;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+  }
+  /* Sidebar Drawer */
+  .MuiDrawer-paper {
+    background-color: #60c5ac;
+    background-image: linear-gradient(
+      180deg,
+      #61c0ac 10%,
+      #784ba0 50%,
+      #2b86c5 100%
+    ) !important; // Phần màu xanh lá có 10% phải trùng với màu Header
+    /* Nền của Sidebar */
+    color: white !important; /* Màu chữ mặc định */
+    border-right: none !important; /* Xóa viền phải */
+    box-shadow: none !important; /* Xóa bóng đổ */
+    .MuiList-root {
+      padding: 0;
+    }
+  }
+
+  /* List Item khi hover */
+  .MuiListItem-root:hover {
+    background-color: #847d9e !important; /* Nền khi hover */
+    color: aliceblue;
+  }
+
+  /* Icon trong ListItem */
+  .MuiListItemIcon-root {
+    color: white !important; /* Màu icon */
+  }
+  .sidebar-active {
+    background-color: #332d45 !important; // Nền xanh khi active
+    color: rgb(230, 238, 11) !important; // Chữ màu trắng khi active
+    font-weight: bold; // Tô đậm chữ
+    border-left: 4px solid #0056b3; // Thanh bên trái làm nổi bật
+  }
+}

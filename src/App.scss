@@ -1,0 +1,90 @@
+@use "../src/assets//styles//mixins.scss" as *;
+
+:root {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Helvetica,
+    Arial,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol;
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Hoặc chọn màu khác */
+  &:hover {
+    cursor: pointer;
+    color: #1966b9;
+  }
+}
+/* Chỉnh cỡ chữ của toast */
+.Toastify__toast {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  @include respond-to(xs) {
+    margin: 10px auto;
+    width: 90vw;
+    border-radius: 10px !important;
+  }
+}
+.Toastify__toast--success {
+  font-size: 1.4rem; /* Cỡ chữ riêng cho toast success */
+  color: #28a745;
+}
+.Toastify__toast--error {
+  font-size: 1.4rem; /* Cỡ chữ riêng cho toast error */
+}
+.Toastify__toast--info {
+  background-color: #007bff;
+}
+.Toastify__toast--warning {
+  background-color: #ffc107;
+  color: #ffc107;
+}
+/*******  COMMON   ********/
+a {
+  text-decoration: none;
+}
+
+.content {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Helvetica,
+    Arial,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol;
+
+  width: 95%;
+  /* Đảm bảo chiều cao tối thiểu là 100% viewport */
+  min-height: 100vh;
+  padding-top: 85px;
+  margin: 0 auto;
+}
+.btn {
+  display: inline-block;
+  min-width: 98px;
+  background: #0f1b4c;
+  border-radius: 12px;
+  padding: 18px 16px;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}

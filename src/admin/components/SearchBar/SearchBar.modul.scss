@@ -1,0 +1,126 @@
+@use "../../../assets/styles/variables.scss" as *;
+
+.search-admin-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  width: auto;
+  z-index: 0;
+  .search-admin-wrapper {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .search-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    font-size: 1.4rem;
+    border: 1px solid #ccc;
+    background: white;
+    padding: 11px;
+    border-radius: 50%;
+    transition:
+      transform 0.3s ease-in-out,
+      border 0.3s ease-in-out;
+    z-index: 2;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .search-input {
+    width: 0;
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    padding: 10px 10px 10px 45px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    transition:
+      width 0.3s ease-in-out,
+      opacity 0.3s ease-in-out;
+  }
+
+  .clear-icon {
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &.expanded {
+    .search-input {
+      width: 330px;
+      opacity: 1;
+    }
+
+    .search-icon {
+      transform: translateX(-290px); // Kéo kính lúp sang trái
+      border: transparent;
+    }
+  }
+}
+.search-dropdown-wrapper {
+  .search-dropdown {
+    position: absolute;
+    top: 65px;
+    right: 180px;
+    width: 380px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+    z-index: 100;
+
+    .search-item {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        background: #f5f5f5;
+      }
+
+      img {
+        object-fit: cover;
+        width: 40px;
+        min-height: 53px;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      h4 {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      p {
+        margin-top: 5px;
+        font-size: 12px;
+        color: gray;
+      }
+      .render_stars {
+        font-size: 1rem;
+      }
+    }
+  }
+  .no-results {
+    color: gray;
+    font-size: 14px;
+    padding: 15px 0;
+    min-height: 100px;
+  }
+}

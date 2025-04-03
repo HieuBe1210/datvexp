@@ -1,0 +1,107 @@
+.movie-stats-dashboard {
+  padding: 5px;
+
+  // Điều chỉnh các ô thống kê trạng thái phim (Phim đang chiếu, Phim sắp chiếu, Phim đã đóng)
+  .ant-row {
+    .ant-col {
+      .ant-card {
+        // Giảm chiều cao và chiều rộng của card
+        .ant-card-body {
+          padding: 5px; // Giảm padding để tiết kiệm không gian
+          text-align: center;
+
+          .ant-statistic {
+            .ant-statistic-title {
+              font-size: 14px; // Giảm kích thước chữ tiêu đề
+              color: #666;
+            }
+
+            .ant-statistic-content {
+              font-size: 24px; // Giảm kích thước số liệu để phù hợp với ô nhỏ hơn
+              font-weight: 600;
+              color: #1890ff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Điều chỉnh các ô thống kê độ tuổi (Độ tuổi 10+, 12+, v.v.)
+  .ant-row:nth-child(2) {
+    .ant-col {
+      .ant-card {
+        .ant-card-body {
+          padding: 2px; // Giảm padding hơn nữa cho các ô độ tuổi
+          text-align: center;
+
+          .ant-statistic {
+            .ant-statistic-title {
+              color: #666;
+              margin-bottom: 2px;
+            }
+
+            .ant-statistic-content {
+              font-size: 20px; // Giảm kích thước số liệu
+              font-weight: 600;
+              color: #1890ff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Điều chỉnh các biểu đồ
+  .ant-row:nth-child(3) {
+    .ant-col {
+      .ant-card {
+        .ant-card-body {
+          .ant-card-title {
+            font-size: 16px; // Giảm kích thước tiêu đề biểu đồ
+          }
+
+          canvas {
+            max-height: 300px; // Đảm bảo biểu đồ không quá lớn
+          }
+        }
+      }
+    }
+  }
+
+  // Điều chỉnh các bảng (Top 5 phim có rating cao nhất, số vé bán ra, bình luận)
+  .ant-row:nth-child(4),
+  .ant-row:nth-child(5) {
+    .ant-col {
+      .ant-card {
+        .ant-card-body {
+          .ant-table {
+            .ant-table-thead {
+              th {
+                font-size: 14px; // Giảm kích thước chữ tiêu đề cột
+                padding: 8px;
+              }
+            }
+
+            .ant-table-tbody {
+              td {
+                font-size: 14px; // Giảm kích thước chữ nội dung
+                padding: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Điều chỉnh bộ lọc (Select và RangePicker)
+  .ant-row:first-child {
+    .ant-col {
+      .ant-select,
+      .ant-picker {
+        font-size: 14px;
+      }
+    }
+  }
+}

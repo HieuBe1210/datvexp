@@ -1,0 +1,137 @@
+@use "../../../assets/styles/variables.scss" as *;
+
+.promotions-section {
+  background-color: $background-green;
+  .home-promotions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+}
+
+.home-promotions-title {
+  font-size: 2.6rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: $blue-color;
+  text-transform: uppercase;
+}
+
+.home-promotions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 cột
+  gap: 20px;
+}
+
+.home-promotion-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.5s ease;
+  opacity: 0;
+  cursor: pointer;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .home-promotion-info {
+    padding: 15px;
+
+    .home-promotion-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .home-promotion-description {
+      font-size: 1.4rem;
+      color: #666;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .home-promotion-date {
+      font-size: 1.2rem;
+      color: #ff4081; // Màu hồng giống trong hình
+      font-weight: bold;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.home-show-more-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; // Khoảng cách giữa text và mũi tên
+  margin: 30px auto;
+  padding: 10px 30px;
+  background: #0f1b4c;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: $orange-color;
+  }
+
+  .arrow-icon {
+    display: inline-block;
+    animation: bounce 1s infinite; // Áp dụng animation bounce
+  }
+}
+
+// Keyframes cho hiệu ứng chuyển động lên xuống
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px); // Mũi tên di chuyển xuống 5px
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .home-promotions-grid {
+    grid-template-columns: repeat(2, 1fr); // 2 cột trên tablet
+  }
+}
+
+@media (max-width: 480px) {
+  .home-promotions-grid {
+    grid-template-columns: 1fr; // 1 cột trên mobile
+  }
+
+  .home-promotions-title {
+    font-size: 24px;
+  }
+}

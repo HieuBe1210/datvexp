@@ -1,0 +1,459 @@
+@use "../../assets/styles/cssBase.scss";
+@use "../../assets/styles/mixins.scss" as *;
+@use "../../assets/styles/variables.scss" as *;
+
+/* --- Variables for Colors --- */
+$dot-colors: (
+  bg-1: #d82b2b,
+  bg-2: #9fb545,
+  bg-3: #f09473,
+  bg-4: #d8652b,
+);
+/* --- Contact Page Styles --- */
+.contact-page {
+  width: 100%;
+  color: #333;
+  border-radius: 8px;
+  background-color: #eee;
+  padding-bottom: 20px;
+
+  /* --- SideBar Banner --- */
+  .sidebar-banner {
+    position: fixed;
+    right: 2px;
+    width: 200px;
+    top: 0;
+    scale: 0.85;
+    @media screen and (max-width: 1400px) {
+      display: none;
+    }
+  }
+  /* --- Intro Section --- */
+  .intro-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    .left-banner {
+      width: 30%;
+      @media screen and (max-width: 850px) {
+        display: none;
+      }
+      img {
+        width: 80%;
+        height: auto;
+        margin-left: 15px;
+        border-radius: 10px;
+      }
+    }
+
+    .intro-text {
+      padding: 20px;
+      width: 55%;
+      font-size: 1.6rem;
+      line-height: 1.6;
+      text-align: left;
+      @media screen and (max-width: 1400px) {
+        width: 90%;
+      }
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #b22222;
+        font-style: italic;
+        font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  /* --- My Cinema Section --- */
+  .my-cinema {
+    .title {
+      font-size: 3rem;
+      font-style: italic;
+      font-weight: 700;
+      color: cssBase.$primary-color;
+    }
+    .my-services {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 40px;
+      /* --- Services Section --- */
+      .services-section {
+        margin-bottom: 40px;
+        width: 312px;
+        flex-shrink: 0;
+        // margin-right: 36px;
+        background: url(../../assets/image/line.svg) 100% 0 no-repeat;
+        @media screen and (max-width: 850px) {
+          display: none;
+        }
+        h2 {
+          text-align: center;
+          margin-bottom: 20px;
+          color: #b22222;
+        }
+
+        .services-list {
+          position: relative;
+          // display: flex;
+          // justify-content: space-between;
+          align-items: center;
+          .service-item {
+            cursor: pointer;
+            transition:
+              background-color 0.3s,
+              transform 0.3s;
+            &:hover {
+              background-color: #f1f1f1;
+            }
+          }
+          .bg-1,
+          .bg-2,
+          .bg-3,
+          .bg-4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 218px;
+            height: 140px;
+            color: #fff;
+            font-size: 1.6rem;
+            border-radius: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.5;
+            padding: 30px 20px 20px;
+            align-items: center;
+          }
+          .bg-1 {
+            background-image: url("../../assets/image/bg_contact_1.png");
+          }
+          .bg-2 {
+            background-image: url("../../assets/image/bg_contact_2.png");
+          }
+          .bg-3 {
+            background-image: url("../../assets/image/bg_contact_3.png");
+          }
+          .bg-4 {
+            background-image: url("../../assets/image/bg_contact_4.png");
+          }
+          li {
+            position: relative;
+            &::before {
+              content: "";
+              width: 16px;
+              height: 16px;
+              border: 1px solid #d82b2b;
+              border-radius: 50%;
+              position: absolute;
+              top: 50%;
+              transform: translate(0, -50%);
+              z-index: 1;
+              background: white;
+              transition: all 0.3s ease;
+            }
+
+            /* Điều chỉnh vị trí cho từng DOT */
+            &.bg-1::before {
+              border-color: #d82b2b;
+              right: -91px;
+            }
+            &.bg-2::before {
+              border-color: #9fb545;
+              right: -75px;
+            }
+            &.bg-3::before {
+              border-color: #f09473;
+              right: -71px;
+            }
+            &.bg-4::before {
+              border-color: #d8652b;
+              right: -81px;
+            }
+            /* --- Áp dụng màu sắc động cho các DOT --- */
+            @each $class, $color in $dot-colors {
+              position: relative;
+              /* Lớp mặc định cho từng DOT (viền) */
+              &.#{$class}::before {
+                /* Màu viền mặc định cho DOT */
+                border-color: $color;
+              }
+              /* Trạng thái khi DOT được chọn (active) */
+              &.#{$class}.selected::before {
+                position: absolute; /* Căn chỉnh tuyệt đối */
+                background-color: $color; /* Màu nền khi được chọn */
+                border-color: $color; /* Màu viền khi được chọn */
+                content: "✔"; /* Biểu tượng */
+                font-size: 11px;
+                color: white;
+                transform: scale(1.5);
+                z-index: 100;
+              }
+            }
+          }
+          .service-item {
+            text-align: center;
+            margin-bottom: 40px;
+            .services {
+              color: #f1f4edcc;
+            }
+          }
+        }
+      }
+
+      /* --- Contact Form Section --- */
+      .contact-form-section {
+        width: 700px;
+        .service-info {
+          width: 100%;
+          height: 250px;
+          background-size: contain;
+          background-position: center;
+          border-radius: 8px;
+          color: #fff;
+          object-fit: contain;
+          background-repeat: no-repeat;
+          white-space: pre-wrap; /* Hiển thị \n thành dòng mới */
+          word-wrap: break-word;
+          &.service-0 {
+            background-image: url("../../assets/image/bg_contact_5.png");
+          }
+          &.service-1 {
+            background-image: url("../../assets/image/bg_contact_6.png");
+          }
+
+          &.service-2 {
+            background-image: url("../../assets/image/bg_contact_7.png");
+          }
+
+          &.service-3 {
+            background-image: url("../../assets/image/bg_contact_8.png");
+          }
+          .service-info-title {
+            width: 450px;
+            font-size: 2.2rem;
+            margin: 0 auto;
+            padding: 20px 0 5px 0;
+          }
+          .service-info-details {
+            margin: 0 auto;
+            width: 450px;
+            // border: 1px solid #232020;
+            border-radius: 8px;
+            max-height: 175px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-size: 1.4rem;
+            line-height: 1.5;
+            text-align: justify;
+            padding: 10px;
+          }
+        }
+
+        .sub-title {
+          text-align: center;
+          margin-top: 30px;
+          color: cssBase.$primary-color;
+          font-size: 2rem;
+        }
+
+        .contact-form {
+          background-color: #fff;
+          padding: 20px;
+          margin-top: 30px;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          .form-rows {
+            flex-direction: row;
+            display: flex; /* Đặt các input trong cùng một dòng */
+            gap: 20px; /* Khoảng cách giữa các input */
+            margin-bottom: 35px;
+          }
+          .form-group {
+            position: relative;
+            flex: 1; /* Chia đều không gian cho các input */
+            display: flex;
+            flex-direction: column;
+            input,
+            select,
+            textarea {
+              background: #fff;
+              height: 44px;
+              padding: 7px 12px;
+              border-radius: 8px;
+              border: 1px solid #babfc4;
+              width: 100%;
+              font-weight: 400;
+              font-size: 1.4rem;
+              color: #141414;
+              &:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+              }
+            }
+            textarea {
+              height: 80px;
+            }
+
+            textarea {
+              resize: none;
+            }
+            .error-message {
+              position: absolute;
+              bottom: -20px;
+              color: red; // Màu đỏ cho thông báo lỗi
+              font-size: 1.4rem;
+              margin-top: 5px;
+              text-align: justify;
+            }
+            .input-error {
+              border-color: red !important; // Đổi màu viền thành màu đỏ khi có lỗi
+            }
+          }
+
+          .submit-button {
+            padding: 15px 20px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            width: 100%;
+            color: #fff;
+            margin-top: 30px;
+            background-color: cssBase.$primary-color;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition:
+              background-color 0.3s,
+              transform 0.2s;
+
+            &:hover {
+              opacity: 0.9;
+              transform: scale(1.01);
+            }
+          }
+        }
+        .details-length {
+          font-size: 1.4rem;
+          margin-bottom: 5px;
+          text-align: right;
+        }
+      }
+    }
+  }
+  /* --- Advert ---*/
+  .ad-promotion {
+    margin-top: 30px;
+    img {
+      display: inline-block;
+      margin: 0 auto;
+      margin: 30px;
+      width: 70%;
+    }
+  }
+}
+
+// REPONSIVE
+@include respond-to(xs) {
+  .contact-page {
+    .intro-section {
+      flex-direction: column;
+      .left-banner {
+        width: 100%;
+        margin-top: 20px;
+        img {
+          width: 300px;
+          margin: 0 auto;
+        }
+      }
+      .intro-text {
+        text-align: justify;
+        width: 100%;
+        font-size: $mobase-font-size-1xl;
+        .title {
+          font-size: $mobase-font-size-4xl;
+        }
+      }
+    }
+    .my-cinema {
+      .title {
+        font-size: $mobase-font-size-4xl;
+      }
+      .my-services {
+        .contact-form-section {
+          .service-0 .service-info-title {
+            color: #d82b2b;
+          } /* Màu đỏ */
+          .service-1 .service-info-title {
+            color: #9fb545;
+          } /* Màu xanh lá */
+          .service-2 .service-info-title {
+            color: #f09473;
+          } /* Màu cam */
+          .service-3 .service-info-title {
+            color: #d8652b;
+          } /* Màu xanh dương */
+          .service-info {
+            width: 90vw;
+            margin: 0 auto;
+            height: 230px;
+            .service-info-title {
+              max-width: fit-content;
+              padding: 0;
+              margin-bottom: 20px;
+              font-size: $mobase-font-size-3xl;
+            }
+            .service-info-details {
+              width: 350px;
+              max-height: 150px;
+            }
+          }
+          .sub-title {
+            display: none;
+          }
+          .contact-form {
+            width: 90vw;
+            margin: 0 auto;
+            font-size: $mobase-font-size-xl;
+            .form-rows {
+              margin-bottom: 20px;
+              display: flex;
+              flex-direction: column;
+              .form-group {
+                .error-message {
+                  bottom: -16px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(xxs) {
+  .contact-page {
+    .my-cinema {
+      .my-services {
+        .contact-form-section {
+          .service-info {
+            width: 90vw;
+            margin: 0 auto;
+            height: 200px;
+            .service-info-details {
+              max-height: 120px;
+              width: 300px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

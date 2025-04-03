@@ -1,0 +1,64 @@
+@use "../../assets/styles/mixins.scss" as *;
+@use "../../assets/styles/variables.scss" as *;
+
+.policy-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  color: #333;
+  font-size: 1.6rem;
+}
+
+.policy-content {
+  padding: 50px;
+}
+
+.policy-title {
+  padding: 10px;
+  text-align: center;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.policy-updated {
+  text-align: center;
+  font-style: italic;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+.policy-section {
+  text-align: justify;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.policy-heading {
+  font-size: 1.6rem;
+  color: #2980b9;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.policy-list {
+  padding-left: 20px;
+  list-style-type: disc;
+
+  li {
+    margin-bottom: 8px;
+  }
+}
+
+@include respond-to(xs) {
+  .content {
+    .policy-container {
+      max-width: 95vw;
+      .policy-content {
+        padding: 20px;
+      }
+    }
+  }
+}

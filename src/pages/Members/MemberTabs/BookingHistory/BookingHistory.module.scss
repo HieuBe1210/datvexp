@@ -1,0 +1,53 @@
+:global {
+  .booking-history-wrapper {
+    width: 100%;
+    overflow-x: auto; // Cho phép cuộn ngang khi bảng bị tràn
+    .ant-table-content {
+      text-align: center !important;
+      border: 1px solid #ccc !important;
+      border-radius: 8px !important;
+      margin: 0 auto !important;
+      max-width: 80% !important;
+      .ant-table-thead {
+        .ant-table-cell {
+          text-align: center !important;
+        }
+      }
+      .ant-table-tbody {
+        text-align: center !important;
+      }
+    }
+  }
+
+  .booking-history-table {
+    // RESPONSIVE CSS
+    @media (max-width: 768px) {
+      .ant-table-content {
+        max-width: 95% !important;
+      }
+      .ant-table-thead > tr > th,
+      .ant-table-tbody > tr > td {
+        font-size: 14px !important;
+        padding: 6px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .ant-table-content {
+        max-width: 95% !important;
+      }
+      .ant-table-cell {
+        max-width: 160px !important;
+      }
+      .ant-table-thead > tr > th,
+      .ant-table-tbody > tr > td {
+        font-size: 14px !important;
+        padding: 6px !important;
+      }
+
+      .ant-table {
+        min-width: 400px;
+      }
+    }
+  }
+}

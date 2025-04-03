@@ -1,0 +1,409 @@
+// Variables
+$primary-color: #1890ff;
+$primary-hover: #40a9ff;
+$danger-color: #ff4d4f;
+$danger-hover: #ff7875;
+$success-color: #52c41a;
+$border-radius: 4px;
+$box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s ease;
+
+.event-list-container {
+  padding: 24px;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+
+  // Card Container
+  .ant-card {
+    background: #fff;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    border: none;
+    overflow: hidden;
+    transition: $transition;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .ant-card-head {
+      padding: 16px 24px;
+      border-bottom: 1px solid #f0f0f0;
+      background: #fff;
+
+      .ant-card-head-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1f1f1f;
+        padding: 0;
+      }
+
+      .ant-card-extra {
+        padding: 0;
+
+        .ant-btn {
+          height: 36px;
+          font-weight: 500;
+          transition: $transition;
+
+          &-primary {
+            background: $primary-color;
+            border-color: $primary-color;
+
+            &:hover {
+              background: $primary-hover;
+              border-color: $primary-hover;
+              transform: translateY(-1px);
+            }
+          }
+        }
+      }
+    }
+
+    .ant-card-body {
+      padding: 24px;
+    }
+  }
+
+  // Filter Form
+  .filter-form {
+    margin-bottom: 24px;
+    background: #fff;
+    padding: 16px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    transition: $transition;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .ant-form-item {
+      margin-bottom: 0;
+      margin-right: 16px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      .ant-input,
+      .ant-select-selector,
+      .ant-picker {
+        border-radius: $border-radius;
+        height: 36px;
+        min-width: 200px;
+        transition: $transition;
+
+        &:hover {
+          border-color: $primary-hover;
+        }
+
+        &:focus {
+          border-color: $primary-color;
+          box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+        }
+      }
+
+      .ant-btn {
+        border-radius: $border-radius;
+        height: 36px;
+        transition: $transition;
+
+        &-primary {
+          background: $primary-color;
+          border-color: $primary-color;
+
+          &:hover {
+            background: $primary-hover;
+            border-color: $primary-hover;
+            transform: translateY(-1px);
+          }
+        }
+
+        &:not(.ant-btn-primary) {
+          &:hover {
+            color: $primary-color;
+            border-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  // Table
+  .ant-table {
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: $box-shadow;
+    transition: $transition;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .ant-table-thead > tr > th {
+      background: #f8f9fa;
+      font-weight: 600;
+      text-align: center;
+      color: #495057;
+      padding: 12px 16px;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .ant-table-tbody > tr {
+      transition: $transition;
+
+      &:hover > td {
+        background: #f1f8ff !important;
+      }
+      .ant-table-cell {
+        padding: 8px 16px;
+        font-size: 13px;
+        color: #333;
+        border-bottom: 1px solid #e8e8e8;
+      }
+      td {
+        text-align: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #e9ecef;
+        transition: $transition;
+
+        .thumbnail-img {
+          border-radius: $border-radius;
+          object-fit: cover;
+          transition: $transition;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+        }
+
+        .status {
+          font-weight: 500;
+          padding: 4px 8px;
+          border-radius: $border-radius;
+          display: inline-block;
+
+          &-active {
+            color: $success-color;
+            background-color: rgba($success-color, 0.1);
+          }
+          &-upcoming {
+            color: $primary-color;
+            background-color: rgba($primary-color, 0.1);
+          }
+          &-expired {
+            color: $danger-color;
+            background-color: rgba($danger-color, 0.1);
+          }
+        }
+
+        .ant-btn {
+          padding: 4px 12px;
+          border-radius: $border-radius;
+          transition: $transition;
+
+          &-primary {
+            &:hover {
+              transform: translateY(-1px);
+            }
+          }
+
+          &-danger {
+            color: $danger-color;
+            border-color: $danger-color;
+
+            &:hover {
+              background: $danger-color;
+              color: white;
+              transform: translateY(-1px);
+            }
+          }
+
+          .anticon {
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  // Modal
+  .ant-modal {
+    .ant-modal-header {
+      border-bottom: 1px solid #f0f0f0;
+      padding: 16px 24px;
+
+      .ant-modal-title {
+        font-weight: 600;
+        color: #1f1f1f;
+      }
+    }
+
+    .ant-modal-content {
+      border-radius: $border-radius * 2;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .ant-modal-body {
+      padding: 24px;
+    }
+
+    .ant-form {
+      .ant-form-item {
+        margin-bottom: 20px;
+
+        .ant-form-item-label {
+          label {
+            font-weight: 500;
+            color: #595959;
+          }
+        }
+
+        .ant-input,
+        .ant-select-selector,
+        .ant-picker,
+        .ant-input-textarea {
+          border-radius: $border-radius;
+          transition: $transition;
+
+          &:hover {
+            border-color: $primary-hover;
+          }
+
+          &:focus {
+            border-color: $primary-color;
+            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+          }
+        }
+
+        .ant-upload {
+          .ant-upload-select-picture-card {
+            border-radius: $border-radius;
+            width: 100px;
+            height: 100px;
+            transition: $transition;
+
+            &:hover {
+              border-color: $primary-color;
+            }
+          }
+
+          .ant-upload-list-picture-card {
+            .ant-upload-list-item {
+              border-radius: $border-radius;
+              transition: $transition;
+
+              &:hover {
+                border-color: $primary-color;
+              }
+            }
+          }
+        }
+      }
+
+      .ant-divider {
+        margin: 24px 0;
+        border-top: 1px solid #f0f0f0;
+      }
+
+      .form-actions {
+        text-align: right;
+
+        .ant-btn {
+          min-width: 100px;
+          height: 40px;
+          border-radius: $border-radius;
+          margin-left: 12px !important;
+          transition: $transition;
+
+          &-primary {
+            &:hover {
+              transform: translateY(-1px);
+            }
+          }
+
+          &:not(.ant-btn-primary) {
+            &:hover {
+              color: $primary-color;
+              border-color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Preview Modal
+  .preview-modal {
+    .ant-modal-content {
+      padding: 0;
+      border-radius: $border-radius * 2;
+      overflow: hidden;
+
+      img {
+        display: block;
+        max-height: 80vh;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .event-list-container {
+    padding: 16px;
+
+    .ant-card {
+      .ant-card-head {
+        padding: 12px 16px;
+      }
+      .ant-card-body {
+        padding: 16px;
+      }
+    }
+
+    .filter-form {
+      padding: 12px;
+
+      .ant-form-item {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 12px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .ant-input,
+        .ant-select-selector,
+        .ant-picker {
+          width: 100%;
+        }
+      }
+    }
+
+    .ant-table {
+      .ant-table-thead > tr > th,
+      .ant-table-tbody > tr > td {
+        padding: 8px 12px;
+      }
+    }
+
+    .ant-modal {
+      width: 100% !important;
+      max-width: 100%;
+      margin: 0;
+      top: 0;
+      padding-bottom: 0;
+
+      .ant-modal-body {
+        padding: 16px;
+      }
+    }
+  }
+}

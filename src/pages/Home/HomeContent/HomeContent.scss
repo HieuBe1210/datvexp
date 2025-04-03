@@ -1,0 +1,172 @@
+@use "./../../../assets/styles/cssBase.scss";
+@use "./../../../assets/styles/mixins.scss" as *;
+@use "./../../../assets/styles/variables.scss" as *;
+
+.home__content {
+  .movie-section-nowShowing {
+    .loading-screen {
+      color: aliceblue;
+    }
+    padding: 50px;
+    background: url(../../../assets/image/notification_bg.jpg) center / cover no-repeat;
+    .card__movie__home {
+      .title-movie {
+        color: $green-color;
+      }
+    }
+  }
+
+  .movie-section-upcoming {
+    padding: 70px 50px;
+    background-color: #b3c3a726;
+
+    .card__movie__home {
+      .title-movie {
+        color: $blue-color;
+      }
+      .rating {
+        display: none;
+      }
+      .movie-index {
+        display: none;
+      }
+    }
+  }
+  .movie-section {
+    min-height: 600px;
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: $blue-color;
+      text-align: center;
+
+      text-transform: uppercase;
+    }
+
+    .section-title-nowShowing {
+      color: #e3dbdb;
+    }
+
+    // Container cho danh sách cuộn ngang
+    .movie-scroll-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
+      border-radius: 10px;
+    }
+
+    // Nút cuộn trái/phải
+    .scroll-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #c3c2ae80;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      z-index: 1;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      &.left {
+        left: 0px;
+      }
+
+      &.right {
+        right: 0px;
+      }
+    }
+
+    // Danh sách phim dạng cuộn ngang
+    .home__movie {
+      display: flex;
+      justify-content: flex-start; // Bắt đầu từ bên trái
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding: 20px 40px; // Thêm padding trái/phải để tránh cắt phim đầu tiên và cuối cùng
+      width: 100%;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      // Mỗi card phim
+      > div {
+        flex: 0 0 auto;
+        width: 300px;
+        height: auto;
+      }
+    }
+  }
+}
+
+// RESPONSIVE
+@include respond-to(sm) {
+  .home__content {
+    .movie-section {
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .home__movie {
+        gap: 15px; // Giảm khoảng cách giữa các card
+        padding: 20px 30px; // Giảm padding trên màn hình nhỏ
+
+        > div {
+          width: 250px;
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(xs) {
+  .home__content {
+    .movie-section {
+      padding: 30px 10px;
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .home__movie {
+        gap: 10px; // Giảm khoảng cách giữa các card
+        padding: 20px 20px; // Giảm padding trên mobile
+
+        > div {
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(xxs) {
+  .home__content {
+    .movie-section {
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .home__movie {
+        gap: 10px;
+        padding: 20px 15px; // Đảm bảo padding đủ để phim đầu tiên không bị cắt
+
+        > div {
+          width: 180px;
+        }
+      }
+    }
+  }
+}

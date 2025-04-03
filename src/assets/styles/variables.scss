@@ -1,0 +1,73 @@
+// LIST FONT
+$mobase-font-size-xxs: 0.625rem;
+$mobase-font-size-xs: 0.75rem;
+$mobase-font-size-sm: 0.875rem;
+$mobase-font-size-base: 1rem;
+$mobase-font-size-lg: 1.125rem;
+$mobase-font-size-xl: 1.25rem;
+$mobase-font-size-1xl: 1.4rem;
+$mobase-font-size-2xl: 1.6rem;
+$mobase-font-size-3xl: 1.875rem;
+$mobase-font-size-4xl: 2.25rem;
+$mobase-font-size-5xl: 3rem;
+$mobase-font-size-6xl: 3.75rem;
+$mobase-font-size-7xl: 4.5rem;
+$mobase-font-size-8xl: 6rem;
+$mobase-font-size-9xl: 8rem;
+$base-font-family:
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  "Open Sans",
+  "Helvetica Neue",
+  sans-serif;
+
+// COLOR
+
+$background-gray: rgba(204, 204, 204, 0.168627451);
+$background-green: rgba(19, 76, 15, 0.1019607843);
+$background-pink: #f9e6f0;
+$background-light: #f9f9f9;
+$white: #fff;
+
+$orange-color: #ff6347;
+$green-color: #b0d427;
+$blue-color: #0f1b4c;
+$primary-color: #0f1b4c;
+$primary-hover: #ff6347;
+$primary-pink: #ff4081;
+$primary-light: #0f1b4c;
+
+$border-light: #ddd;
+$border-medium: #eee;
+$text-dark: #333;
+$text-gray: #666;
+$text-medium: #666;
+$border-color: #ddd;
+$border-primary-color: #0f1b4c;
+
+$shadow-light: rgba(0, 0, 0, 0.05);
+$shadow-medium: rgba(0, 0, 0, 0.1);
+$shadow-dark: rgba(20, 16, 11, 0.1);
+$cgv-primary: #0f1b4c;
+$cgv-text-dark: #333;
+$cgv-text-medium: #666;
+$cgv-background-light: #f5f5f5;
+$cgv-white: #fff;
+$cgv-border-light: #ddd;
+$cgv-shadow-light: rgba(0, 0, 0, 0.1);
+
+// Biến kích thước
+$max-width: 1200px;
+$border-radius: 8px;
+$border-radius-large: 10px;
+$border-radius-slot: 20px;
+$gap-small: 5px;
+$gap-medium: 12px;
+$gap-large: 25px;
+$gap-xlarge: 30px;

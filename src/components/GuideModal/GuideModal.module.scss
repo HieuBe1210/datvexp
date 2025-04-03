@@ -1,0 +1,126 @@
+@use "../../assets/styles/mixins.scss" as *;
+@use "../../assets/styles/variables.scss" as *;
+
+.modalShrink {
+  animation: shrink-to-corner 0.5s forwards; /* Áp dụng animation thu nhỏ */
+}
+
+.modalExpand {
+  animation: expand-from-corner 0.5s forwards; /* Áp dụng animation phóng to */
+}
+
+/* Animation thu nhỏ từ kích thước đầy đủ về góc */
+@keyframes shrink-to-corner {
+  from {
+    transform: scale(1); /* Kích thước ban đầu */
+    opacity: 1; /* Độ trong suốt ban đầu */
+    transform-origin: center; /* Gốc tọa độ ở trung tâm */
+  }
+  to {
+    transform: scale(0.8) translate(-50vw, 50vh); /* Thu nhỏ và di chuyển về góc dưới bên trái */
+    opacity: 0;
+    transform-origin: bottom left; /* Gốc tọa độ ở góc dưới bên trái */
+  }
+}
+
+/* Animation phóng to từ góc trở về kích thước đầy đủ */
+@keyframes expand-from-corner {
+  from {
+    transform: scale(0.8) translate(-50vw, 50vh); /* Kích thước nhỏ và ở góc dưới bên trái */
+    opacity: 0; /* Bắt đầu với độ trong suốt */
+    transform-origin: bottom left; /* Gốc tọa độ ở góc dưới bên trái */
+  }
+  to {
+    transform: scale(1); /* Phóng to về kích thước đầy đủ */
+    opacity: 1;
+    transform-origin: center; /* Gốc tọa độ trở về trung tâm */
+  }
+}
+
+/* Nút đóng Modal */
+.closeButton {
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  color: #000 !important;
+}
+
+/* Nút FAB mở lại Modal */
+.reopenButton {
+  position: fixed !important;
+  bottom: 25px !important;
+  left: 10px !important;
+  z-index: 1000 !important;
+  width: 40px !important;
+  height: 40px !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+/* Tiêu đề Modal với căn chỉnh */
+.guide__title {
+  text-align: center;
+  font-size: 2rem !important;
+  color: #a41012;
+}
+.guide_intro {
+  text-align: justify;
+  margin-bottom: 5px !important;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.guide_content {
+  position: relative !important;
+  margin-bottom: 15px !important;
+  line-height: 1.5;
+  color: #000;
+  .title_card {
+    font-style: italic;
+    // font-weight: 600;
+  }
+}
+.copyButton {
+  position: absolute !important;
+  padding: 0 !important;
+  font-size: 1.1rem !important;
+  margin: 0 0 5px 10px !important;
+  text-transform: none !important;
+}
+.check_icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 20px;
+  color: green;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 5px;
+  @include respond-to(xxs) {
+    display: none;
+  }
+}
+
+@include respond-to(xs) {
+  .guide__title {
+    font-size: $mobase-font-size-6xl;
+  }
+
+  .guide_intro {
+    font-size: $mobase-font-size-1xl;
+  }
+
+  .guide_content {
+    padding: 5px;
+  }
+
+  .copyButton {
+    font-size: 0.7rem;
+    padding: 3px;
+  }
+
+  .reopenButton {
+    width: 50px;
+    height: 50px;
+    bottom: 25px;
+  }
+}

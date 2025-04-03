@@ -1,0 +1,99 @@
+@use "./../../assets/styles/cssBase.scss";
+@use "../../assets//styles/mixins.scss" as *;
+
+.footer {
+  display: flex;
+  font-size: 1.4rem;
+  justify-content: space-between;
+  text-align: left;
+  background-color: #eee;
+  padding: 5px 0;
+  color: cssBase.$primary-color;
+
+  // Ẩn trên Mobile
+  @include respond-to(sm) {
+    display: none;
+  }
+  h4 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+  .footer__section {
+    li {
+      padding: 10px 0;
+    }
+    a {
+      color: cssBase.$primary-color;
+    }
+  }
+  .footer__links {
+    flex: 1;
+    margin-left: 15px;
+    img {
+      width: 220px;
+      margin-left: -15px;
+      object-fit: cover;
+    }
+  }
+  .footer__info {
+    flex: 3;
+    h4 {
+      text-align: center;
+    }
+    .footer__list__cinemas {
+      display: flex;
+      justify-content: space-around;
+      .title__location {
+        margin: 10px 0;
+        font-weight: 500;
+      }
+      ul {
+        margin-right: 20px;
+      }
+    }
+    @include respond-to(lg) {
+      display: none;
+    }
+  }
+  .footer__social {
+    flex: 1;
+    li {
+      display: flex;
+      align-items: center;
+    }
+    img {
+      width: 145px;
+      object-fit: cover;
+    }
+    .anticon svg {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    .anticon svg:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+  .footer__contact {
+    flex: 1;
+    margin-right: 15px;
+  }
+  @include respond-to(lg) {
+    padding: 5px 50px;
+  }
+}
+.copyright {
+  background-color: #86888a;
+  padding: 5px 0;
+  p {
+    .anticon svg {
+      margin-right: 5px;
+    }
+    font-size: 1.2rem;
+  }
+}
+a:hover {
+  cursor: pointer;
+}

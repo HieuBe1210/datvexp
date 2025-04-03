@@ -1,0 +1,318 @@
+@use "./../../assets/styles/cssBase.scss";
+@use "../../assets//styles/mixins.scss" as *;
+
+.navbar-toggler {
+  display: none; // Ẩn mặc định
+  @include respond-to(sm) {
+    display: block; // Chỉ hiển thị  từ 768px (Ipad Mini) trở xuống
+    padding: 5px;
+    margin-right: 5px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #eee;
+  z-index: 999;
+  border-bottom: 1px solid #ccc;
+  background-color: #eee;
+  font-size: 1.6rem;
+
+  .nav-content {
+    position: relative;
+
+    .header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      min-height: 48px;
+
+      .header-left {
+        align-items: center;
+        flex: 1;
+
+        .header-logo {
+          display: inline-block;
+          width: 100%;
+          object-fit: cover;
+        }
+        // Ẩn khi màn hình nhỏ hơn 1199.98px;
+        @include respond-to(lg) {
+          display: none;
+        }
+      }
+      .header-center {
+        position: relative;
+        flex: 5;
+        width: 100%;
+        .header__nav {
+          display: flex;
+          white-space: nowrap; /* Ngăn các mục xuống dòng */
+          justify-content: center;
+          margin-left: 90px;
+          align-items: center;
+          max-width: fit-content;
+          font-weight: 500;
+          li {
+            a {
+              padding: 15px;
+              color: cssBase.$primary-color;
+              text-decoration: none;
+              display: block;
+              text-align: center;
+              font-size: 1.8rem;
+              &.active {
+                color: #9d3b0a; // Đổi màu chữ khi active
+              }
+            }
+            a:hover {
+              border-radius: 15px;
+              opacity: 0.9;
+              background: #ccc;
+              transition: 1s ease;
+            }
+
+            .input-search {
+              width: 280px;
+              height: 30px;
+              border-radius: 15px;
+              border: 1.8px solid #6c6969;
+            }
+            .input-search::placeholder {
+              padding-left: 10px;
+              font-family: "Poppins", sans-serif;
+              font-size: 1.6rem;
+            }
+          }
+        }
+        // Chọn Dropdow
+        ul li:first-child {
+          margin-right: 10px;
+        }
+        // Chọn Search
+        ul li:last-child {
+          margin-left: 10px;
+        }
+      }
+      .header-right {
+        align-items: center;
+        .login-actions {
+          .action-btn {
+            margin-left: 20px;
+          }
+          .user-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            &:hover {
+              cursor: pointer;
+            }
+            .user-name {
+              margin-right: 8px;
+              // Ẩn khi màn hình nhỏ hơn 991.98px
+              @include respond-to(md) {
+                display: none;
+              }
+            }
+            @include respond-to(md) {
+              max-width: 70px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// SUPPORT ICON
+.support__icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  .support-wrapper {
+    position: relative;
+
+    img {
+      width: 40px;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .support-options {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .support-option {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: scale(0);
+
+        img {
+          width: 40px;
+        }
+
+        &:hover {
+          transform: scale(1.2);
+        }
+
+        &.chatbox {
+          animation: expand 0.3s ease forwards;
+          transform-origin: center;
+          bottom: 60px;
+          right: -20;
+        }
+
+        &.zalo {
+          animation: expand 0.3s ease forwards 0.1s;
+          transform-origin: center;
+          bottom: 35px;
+          right: 45px;
+        }
+
+        &.messenger {
+          animation: expand 0.3s ease forwards 0.2s;
+          transform-origin: center;
+          bottom: -15px;
+          right: 60px;
+        }
+      }
+    }
+  }
+}
+
+// CROLL TOP ICON
+.top__scroll {
+  position: fixed;
+  bottom: 145px;
+  right: 20px;
+  z-index: 1000;
+
+  img {
+    width: 40px;
+    border: 1px solid #b0b1cf;
+    border-radius: 50%;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.ant-dropdown {
+  position: fixed; // Đảm bảo không bị ảnh hưởng bởi scroll
+  z-index: 1050;
+}
+// Hiệu ứng mở rộng khi các biểu tượng xuất hiện
+@keyframes expand {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Chatbot wrapper để kiểm soát hiển thị/ẩn
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 45px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  // Đảm bảo chatbot-container bên trong không bị ảnh hưởng
+  .chatbot-container {
+    margin: 0;
+  }
+}
+
+// REPONSIVE
+@include respond-to(xs) {
+  .header {
+    position: relative;
+    .search-wrapper {
+      position: absolute;
+      top: 15px;
+      right: 5px;
+    }
+
+    .header-center {
+      display: none; // Ẩn menu khi chưa mở toggler
+    }
+    .header-right {
+      display: none;
+    }
+  }
+  .top__scroll {
+    bottom: 70px;
+  }
+  .support__icon {
+    bottom: 25px;
+  }
+}
+@include respond-to(sm) {
+  .navbar {
+    .nav-content {
+      .header {
+        position: relative;
+        .search-wrapper {
+          position: absolute;
+          top: 15px;
+          right: 5px;
+        }
+        .header-left {
+          .header-logo {
+            width: 120px;
+            max-height: min-content;
+          }
+        }
+        .header-center {
+          display: none; // Ẩn menu khi chưa mở toggler
+        }
+        .header-right {
+          display: none;
+        }
+      }
+      .top__scroll {
+        bottom: 70px;
+      }
+      .support__icon {
+        bottom: 25px;
+      }
+    }
+  }
+}

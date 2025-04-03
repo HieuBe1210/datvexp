@@ -1,0 +1,74 @@
+@use "../../../assets/styles/mixins.scss" as *;
+@use "../../../assets/styles/variables.scss" as *;
+
+// Common
+.title {
+  color: #9d3b0f;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Căn chỉnh thanh Tabs */
+.ant-tabs-nav {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border-bottom: none;
+  margin-bottom: -1px; /* Để tránh viền thừa khi active */
+}
+
+/* Tùy chỉnh từng Tab */
+.ant-tabs-tab {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #f0f0f0; /* Màu xám nhạt */
+  border-bottom: none;
+  border-radius: 8px 8px 0 0; /* Góc bo tròn */
+  transition: all 0.3s;
+}
+.ant-tabs-tab-active {
+  color: #000; /* Màu chữ active */
+  background-color: white; /* Màu nền trắng khi active */
+  border: 1px solid #ddd;
+  border-bottom: 2px solid white; /* Giữ không viền dưới */
+  z-index: 1; /* Đảm bảo Tab active luôn ở trên */
+}
+
+/* Hover hiệu ứng */
+.ant-tabs-tab:hover {
+  background-color: #e6e6e6; /* Màu xám nhạt hơn khi hover */
+}
+.ant-tabs-tab-btn {
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+/* Ẩn thanh ink-bar mặc định */
+.ant-tabs-ink-bar {
+  display: none;
+}
+.ant-tabs-nav-wrap {
+  border: none;
+  outline: none;
+}
+.ant-tabs-nav::before {
+  display: none;
+}
+
+// RESPONSIVE
+@include respond-to(xs) {
+  .ant-tabs-nav-wrap {
+    margin-top: 20px;
+    .ant-tabs-nav-list {
+      div.ant-tabs-tab {
+        font-size: $mobase-font-size-xl;
+        max-width: 105px;
+        padding: 5px !important;
+        justify-content: center;
+      }
+    }
+  }
+}

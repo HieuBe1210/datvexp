@@ -1,0 +1,33 @@
+.error-page {
+  .title-error {
+    padding: 20px 0 5px 0;
+    font-size: 2rem;
+    text-align: center;
+    color: red;
+  }
+  .message-error {
+    padding: 5px 0 30px 0;
+    font-size: 1.6rem;
+  }
+  .image-error {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+  }
+}
+.toHome-btn {
+  margin: 10px;
+  padding: 10px;
+  background: #009ec5;
+  width: 200px;
+  height: 40px;
+  margin: 20px;
+  border-radius: 20px;
+  color: #fff;
+  border: none;
+  font-size: 1.4rem;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,97 @@
+@use "../../../assets/styles/mixins.scss" as *;
+@use "../../../assets/styles/variables.scss" as *;
+
+.theater-input-container {
+  position: relative;
+  width: 100%;
+  min-width: 400px;
+  .error-container {
+    min-height: 30px;
+    .error-message {
+      position: absolute;
+      color: #d3302f;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+// Font size của Title Modal
+.MuiDialogTitle-root {
+  font-size: 1.8rem !important;
+  font-weight: bold;
+  color: #1e79d4;
+}
+
+.dialog-actions-btn {
+  font-size: 1.4rem !important;
+  text-transform: none;
+}
+
+.MuiInputBase-input {
+  font-size: 1.4rem;
+}
+
+/* Font size của label trong input */
+.MuiInputLabel-root,
+.MuiOutlinedInput-root {
+  font-size: 16px !important;
+  scale: 1 !important;
+}
+
+//Font size của input
+.MuiInputBase-input {
+  font-size: 1.4rem !important;
+}
+
+// Nút xác nhận Modal Xoá
+.MuiButton-root {
+  font-size: 12px !important;
+}
+
+.MuiFormHelperText-root,
+.Mui-error,
+.MuiFormHelperText-contained {
+  font-size: 1.4rem !important;
+  margin: 0 !important;
+}
+
+// Font size của Phân trang
+.MuiPaginationItem-root {
+  font-size: 12px !important;
+}
+
+.MuiBox-root {
+  position: relative;
+  .search-admin {
+    position: absolute;
+    top: 17px;
+    right: 160px;
+    z-index: 1;
+  }
+}
+
+/* Thêm style để ngăn xuống hàng trong các ô của bảng */
+.no-wrap {
+  white-space: nowrap !important; /* Ngăn xuống hàng */
+  overflow: hidden; /* Ẩn nội dung tràn */
+  text-overflow: ellipsis; /* Hiển thị ... nếu nội dung quá dài */
+}
+
+/* Trong TheaterManagement.modul.scss */
+.confirm-delete-dialog-text {
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
+}
+.MuiDialogContent-root {
+  padding: 15px 35px !important;
+  font-size: 1.4rem !important;
+}
+.tableRowColor {
+  background-color: rgba(22, 10, 95, 0.2);
+}
+
+.lableDetail {
+  white-space: nowrap;
+  font-weight: bold;
+  margin-right: 4px;
+}

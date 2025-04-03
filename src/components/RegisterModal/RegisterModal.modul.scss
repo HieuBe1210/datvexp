@@ -1,0 +1,27 @@
+@use "./../../assets/styles/cssBase.scss";
+
+.modal-register-content {
+  max-height: 95%;
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    label {
+      margin-right: 10px;
+    }
+  }
+
+  .login-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.6rem;
+
+    .login-link {
+      color: #1a73e8; // Màu xanh cho link "Đăng nhập"
+      cursor: pointer; // Con trỏ thành hình bàn tay khi hover
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline; // Gạch chân khi hover vào link
+      }
+    }
+  }
+}

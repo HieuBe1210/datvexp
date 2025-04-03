@@ -1,0 +1,157 @@
+@use "../../assets/styles/mixins.scss" as *;
+
+.sidebar-header {
+  position: fixed;
+  top: 0;
+  left: -255px; // Ẩn sidebar ban đầu
+  width: 255px;
+  height: 100%;
+  overflow-y: scroll;
+  background: #fff;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease-in-out;
+  z-index: 1100; // Đảm bảo hiển thị trên cùng
+  padding-top: 15px;
+
+  &.open {
+    left: 0; // Khi mở, sidebar trượt vào
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-item {
+    width: 100%;
+    font-size: 1.6rem;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .sidebar-item:last-child {
+    border-bottom: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.6rem;
+    display: block;
+    width: 100%;
+  }
+
+  .menu-btn {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    z-index: 100; // Đảm bảo menu button luôn hiển thị
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1000;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// SIDEBAR-LOGIN
+.sidebar-auth {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    gap: 8px;
+    .user-img img {
+      width: 50px;
+      border-radius: 50%;
+    }
+  }
+
+  .btn-logout {
+    background: red;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .auth-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .btn {
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: #007bff;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #28a745;
+      color: #fff;
+    }
+  }
+}
+
+// SIDEBAR FOOTER
+.sidebar-footer {
+  // Hiển thị lại Footer trong MobileSidebar
+  .footer {
+    display: flex !important;
+    flex-direction: column;
+    text-align: left;
+    background-color: #fff;
+    font-size: 1.6rem;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    .footer__logo {
+      display: none;
+    }
+    .footer__info {
+      display: none;
+    }
+    .footer__contact,
+    .footer__social {
+      padding-left: 10px;
+      font-size: 1.6rem;
+      li {
+        font-size: 1.6rem;
+        padding: 5px;
+      }
+      .footer-title {
+        padding-left: 5px;
+      }
+    }
+  }
+}

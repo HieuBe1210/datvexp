@@ -1,0 +1,332 @@
+@use "./../../assets/styles/cssBase.scss";
+@use "../../assets/styles/mixins.scss" as *;
+@use "../../assets/styles/variables.scss" as *;
+
+.content {
+  .card_seat {
+    .content_tab {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      justify-content: center;
+      @media screen and (max-width: 1050px) {
+        display: flex;
+        flex-direction: column;
+      }
+      .col1 {
+        img {
+          max-width: -webkit-fill-available;
+          margin-top: 20px;
+          width: 800px;
+          @media screen and (max-width: 1350px) {
+            width: 90%;
+          }
+        }
+
+        .row_seat {
+          overflow-x: auto;
+          white-space: nowrap;
+          min-height: 450px; // Đảm bảo đủ chiều cao để hiển thị các hàng
+
+          @include respond-to(xs) {
+            min-height: 300px; // Giảm chiều cao trên mobile
+          }
+          position: relative; // Để đường kẻ lối đi có thể căn chỉnh theo hàng
+          .seat-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            min-width: max-content;
+
+            .row-label {
+              width: 30px;
+              font-weight: bold;
+              text-align: right;
+              margin-right: 10px;
+            }
+
+            .seat {
+              display: flex;
+              flex-wrap: nowrap;
+              justify-content: center;
+
+              .seat {
+                position: relative;
+                margin: 0;
+
+                img {
+                  width: 40px;
+                  margin: 15px 20px 0;
+                  cursor: pointer;
+
+                  @media screen and (max-width: 1400px) {
+                    margin-left: 20px;
+                    margin-right: 20px;
+                  }
+                  @media screen and (max-width: 1350px) {
+                    margin-left: 15px;
+                    margin-right: 15px;
+                  }
+                  @media screen and (max-width: 1300px) {
+                    margin-left: 12px;
+                    margin-right: 12px;
+                  }
+                  @media screen and (max-width: 1200px) {
+                    margin-left: 10px;
+                    margin-right: 10px;
+                  }
+                  @media screen and (max-width: 1150px) {
+                    margin-left: 6px;
+                    margin-right: 6px;
+                  }
+                  @media screen and (max-width: 1050px) {
+                    margin-left: 25px;
+                    margin-right: 25px;
+                  }
+                  @include respond-to(md) {
+                    width: 40px;
+                    margin-left: 15px;
+                    margin-right: 15px;
+                  }
+                  @include respond-to(xs) {
+                    width: 25px;
+                    height: 25px;
+                    margin: 4px;
+                  }
+                }
+
+                .seat-name {
+                  position: absolute;
+                  top: 55%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  color: rgb(17, 3, 3);
+                  background-color: transparent;
+                  font-size: 12px;
+                  margin: 0;
+                  pointer-events: none;
+
+                  @include respond-to(xs) {
+                    font-size: $mobase-font-size-xs;
+                  }
+                }
+
+                &:hover {
+                  transform: scale(1.1);
+                  img {
+                    opacity: 0.9;
+                  }
+                }
+              }
+              .seat-wrapper {
+                display: flex;
+                align-items: center;
+
+                &.aisle-before {
+                  position: relative;
+                  .seat {
+                    margin-right: 100px;
+
+                    @media screen and (max-width: 1050px) {
+                      margin-right: 60px;
+                    }
+                    @include respond-to(xs) {
+                      margin-right: 40px;
+                    }
+                  }
+                  // TẠO LỐI ĐI
+                  // &.aisle-before {
+                  //   &:after {
+                  //     content: "↕"; // Thêm biểu tượng mũi tên dọc
+                  //     position: absolute;
+                  //     top: 50%;
+                  //     right: 0;
+                  //     transform: translate(-50%, -50%);
+                  //     color: #999;
+                  //     font-size: 20px;
+                  //     background: transparent;
+                  //   }
+                  // }
+                }
+              }
+            }
+          }
+        }
+        .status_seat {
+          margin: 0 auto;
+          width: 500px;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          .status-seat__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+
+            p.status-seat__lable {
+              margin-top: 10px;
+            }
+          }
+          img {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+          }
+        }
+        div.detail_seat {
+          display: grid;
+          grid-template-columns: 2.5fr 0.5fr;
+          height: 87px;
+        }
+        .row_price {
+          display: flex;
+          justify-content: space-around;
+          padding: 10px;
+          font-size: 1.5rem;
+          font-weight: 600;
+          .timeout-wrapper-booking-seat {
+            display: block;
+          }
+          .title_price {
+            width: 100%;
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      .col2 {
+        h1 {
+          display: flex;
+          justify-content: center;
+          font-size: 2.3rem;
+          margin: 10px auto;
+          color: red;
+        }
+
+        button {
+          width: 30%;
+          padding: 10px;
+          margin-bottom: 10px;
+          border-radius: 10px;
+          font-size: 1.5rem;
+          color: white;
+          background-color: #1e83c5;
+          &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}
+@include respond-to(sm) {
+  .content {
+    .card_seat {
+      .content_tab {
+        display: flex;
+        flex-direction: column;
+        .col1 {
+          div.row_seat {
+            img {
+              width: 40px;
+              margin-left: 7px;
+              margin-right: 7px;
+
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include respond-to(xs) {
+  .content {
+    .card_seat {
+      .content_tab {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0 0 0;
+        div.col1 {
+          width: 100vw;
+          img {
+            width: 90vw;
+            margin: 5px auto;
+          }
+          div.row_seat {
+            margin: 0;
+            .seat-row {
+              margin-bottom: 5px;
+              .seat {
+                .seat-name {
+                  // display: none;
+                  font-size: $mobase-font-size-xs;
+                }
+              }
+            }
+          }
+          .status_seat {
+            width: 270px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0;
+            margin-bottom: 5px;
+            .status-seat__item {
+              margin: 5px;
+              img {
+                width: 25px;
+                height: 25px;
+              }
+              .status-seat__lable {
+                font-size: $mobase-font-size-1xl;
+                margin-top: 0;
+              }
+            }
+          }
+          .row_price {
+            margin: 0 auto;
+            width: 350px;
+            height: 100px;
+            padding: 0;
+            font-size: $mobase-font-size-lg;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            .timeout-wrapper {
+              .title_time_out {
+                margin: 0 0 10px 0;
+                font-size: $mobase-font-size-1xl;
+              }
+            }
+            .price {
+              .title_price {
+                font-size: $mobase-font-size-1xl;
+              }
+            }
+          }
+        }
+        div.col2 {
+          .detail_movie {
+            .detail_movie_container {
+              .detail_movie_img {
+                width: 150px;
+              }
+              .detail_movie_info {
+                font-size: $mobase-font-size-1xl;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

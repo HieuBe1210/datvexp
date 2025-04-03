@@ -1,0 +1,27 @@
+.notification_overlay {
+  background-image: url(../../assets/image/notification_bg.jpg) !important;
+  object-fit: contain !important;
+  background-size: cover !important;
+  margin-top: 50px !important;
+}
+.notification_container {
+  max-width: 450px !important; // Độ rộng tối đa của notification
+  padding: 50px !important;
+  .notification_value {
+    font-size: 1.4rem !important;
+  }
+  .notification_title {
+    font-size: 1.4rem !important;
+    font-weight: bold !important;
+  }
+
+  .success_title,
+  .error_title {
+    font-size: 1.8rem !important;
+    margin-bottom: 15px !important;
+  }
+
+  .action_buttons {
+    font-size: 1.3rem !important;
+  }
+}

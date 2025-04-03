@@ -1,0 +1,284 @@
+.user-list {
+  padding: 24px; // Tăng padding cho thoáng hơn
+  background: #f5f7fa; // Thêm nền nhạt cho toàn bộ container
+
+  .toolbar {
+    position: relative;
+    padding: 16px;
+    display: flex;
+    gap: 16px; // Giảm gap cho compact hơn
+    margin-bottom: 24px;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); // Thêm shadow nhẹ
+
+    .user-list-search {
+      position: absolute;
+      right: 16px;
+      width: 320px; // Tăng nhẹ chiều rộng
+      transition: width 0.3s ease; // Thêm animation khi focus
+
+      &:focus-within {
+        width: 350px; // Mở rộng khi focus
+      }
+    }
+
+    .ant-btn {
+      min-width: 110px;
+      height: 36px; // Chuẩn hóa chiều cao nút
+      border-radius: 6px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .ant-table {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden; // Đảm bảo border-radius hoạt động tốt
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    .ant-table-cell {
+      text-align: center;
+      padding: 14px 8px; // Tăng padding cho thoáng
+      font-size: 14px;
+    }
+
+    .ant-btn-default {
+      margin: 0 4px;
+      min-width: 70px;
+      height: 32px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-1px); // Hiệu ứng nâng nhẹ khi hover
+      }
+    }
+    .role-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 12px;
+      border-radius: 16px; // Bo tròn hơn
+      color: #221e1e;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-transform: capitalize;
+      transition: all 0.3s ease;
+      min-width: 70px; // Đảm bảo kích thước tối thiểu
+      &.role-manager {
+        color: #f5f7fa;
+
+        background: linear-gradient(135deg, rgb(37, 6, 216), #45b014);
+      }
+
+      &.role-admin {
+        color: #f5f7fa;
+        background: linear-gradient(135deg, rgb(9, 40, 243), #e64446);
+      }
+    }
+    .status-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 12px;
+      border-radius: 16px; // Bo tròn hơn
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: capitalize;
+      transition: all 0.3s ease;
+      min-width: 70px; // Đảm bảo kích thước tối thiểu
+
+      &:hover {
+        opacity: 0.9;
+        transform: scale(1.02); // Phóng to nhẹ khi hover
+        cursor: default;
+      }
+
+      // Màu sắc trạng thái với độ gradient nhẹ
+      &.status {
+        background: linear-gradient(135deg, #52c41a, #45b014);
+      }
+      &.status-active {
+        background: linear-gradient(135deg, #52c41a, #45b014);
+      }
+
+      &.status-locked {
+        background: linear-gradient(135deg, #ff4d4f, #e64446);
+      }
+
+      &.status-canceled {
+        background: linear-gradient(135deg, #8c8c8c, #737373);
+      }
+
+      &.status-pending {
+        background: linear-gradient(135deg, #faad14, #e89c13);
+      }
+
+      &.status-failed {
+        background: linear-gradient(135deg, #ff7a45, #f16939);
+      }
+    }
+  }
+  .toolbar {
+    // Nút Xóa bộ lọc
+    .delete-filter-btn {
+      background-color: #ff3333 !important;
+      color: #fff !important;
+      border: none !important;
+      box-shadow: 0 2px 4px rgba(255, 51, 51, 0.3);
+      font-weight: 500;
+      transition: all 0.3s ease; // Hiệu ứng mượt mà khi hover
+
+      &:hover {
+        background-color: #e60000 !important;
+        box-shadow: 0 4px 8px rgba(255, 51, 51, 0.5);
+        transform: translateY(-1px); // Nâng nhẹ nút lên khi hover
+      }
+
+      &:active {
+        transform: translateY(1px); // Hạ nút xuống khi nhấn
+        box-shadow: 0 1px 2px rgba(255, 51, 51, 0.2); // Giảm bóng khi nhấn
+      }
+    }
+  }
+}
+
+// Modal chi tiết tài khoản
+.ant-modal {
+  &-content {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    .ant-modal-header {
+      background: linear-gradient(135deg, #1890ff, #096dd9);
+      border-bottom: none;
+      border-radius: 12px 12px 0 0;
+      padding: 16px 35px;
+      margin-top: 30px;
+      .ant-modal-title {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    .ant-modal-body {
+      padding: 20px 35px;
+
+      p {
+        margin: 0;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        strong {
+          display: inline-block;
+          min-width: 120px;
+          color: #555;
+          font-weight: 500;
+          text-align: justify;
+        }
+
+        span {
+          color: #222;
+          font-weight: 400;
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  .ant-modal-footer {
+    border-top: none;
+    padding: 16px 24px;
+    background: #f9f9f9;
+
+    .ant-btn {
+      min-width: 120px;
+      height: 40px;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+
+      &:first-child:not(:last-child) {
+        margin-right: 12px;
+      }
+
+      &-danger {
+        background: #ff4d4f;
+        border-color: #ff4d4f;
+        color: white;
+
+        &:hover {
+          background: #ff7875;
+          border-color: #ff7875;
+        }
+
+        &:disabled {
+          background: #ffccc7;
+          border-color: #ffccc7;
+          color: white;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+// Responsive cho modal
+@media (max-width: 768px) {
+  .ant-modal {
+    &-content {
+      .ant-modal-body {
+        > div {
+          grid-template-columns: 1fr;
+
+          p {
+            flex-direction: column;
+            align-items: flex-start;
+
+            strong {
+              margin-bottom: 4px;
+              min-width: auto;
+            }
+          }
+        }
+      }
+
+      .ant-modal-footer {
+        .ant-btn {
+          min-width: 100px;
+          height: 36px;
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .user-list {
+    padding: 16px;
+
+    .toolbar {
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px;
+
+      .user-list-search {
+        position: static;
+        width: 100%;
+        margin-top: 12px;
+      }
+    }
+  }
+}

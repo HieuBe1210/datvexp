@@ -1,0 +1,17 @@
+.header {
+  z-index: 100;
+  .MuiAppBar-colorPrimary {
+    background-color: #61c0ac !important;
+    background-image: linear-gradient(90deg, #61c0ac 10%, #784ba0 50%, #2b86c5 100%) !important;
+    .button-action {
+      background-color: #121241 !important;
+      border-radius: 8px !important;
+      padding: 10px !important;
+    }
+  }
+  /* Breadcrumbs không bị chồng lấp */
+  .MuiBreadcrumbs-root {
+    z-index: 100;
+    position: relative;
+  }
+}
