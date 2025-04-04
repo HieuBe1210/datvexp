@@ -111,7 +111,7 @@ const GuideModal = ({ autoOpen = false }) => {
               </p>
               <p>
                 <strong className={styles.title_card}>Số thẻ :</strong>{" "}
-                4111111111111111{" "}
+                8666688881210{" "}
                 <Button
                   size="small"
                   startIcon={<ContentCopyIcon />}
@@ -121,13 +121,12 @@ const GuideModal = ({ autoOpen = false }) => {
                   Copy
                 </Button>
                 <br />
-                <strong className={styles.title_card}>Tên :</strong> NGUYEN VAN
-                A
+                <strong className={styles.title_card}>Tên :</strong> Le Minh Hieu
                 <Button
                   size="small"
                   startIcon={<ContentCopyIcon />}
                   className={styles.copyButton}
-                  onClick={() => handleCopy("NGUYEN VAN A")}
+                  onClick={() => handleCopy("Le Minh Hieu")}
                 >
                   Copy
                 </Button>
@@ -145,7 +144,7 @@ const GuideModal = ({ autoOpen = false }) => {
             >
               3. Để trải nghiệm giao diện quản lý vui lòng liên hệ Team phát
               triển để được cung cấp tài khoản Admin thông qua email:{" "}
-              <Link to="mailto:mock2406@gmail.com">mock2406@gmail.com</Link>
+              <Link to="mailto:tinhtailor@gmail.com">hieube1210@gmail.com</Link>
             </div>
           </DialogContent>
         </Dialog>
